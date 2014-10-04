@@ -6,6 +6,11 @@ import urllib2
 import urlparse
 import wsgiref
 
+def minify(html, base_url='', memcache=None):
+	m = Minifier(url)
+	m.memcache = memcache
+	return m.minify(html, 'text/html')
+
 class WSGIMiddleware:
 	def __init__(self, app, memcache=None):
 		self.app = app
